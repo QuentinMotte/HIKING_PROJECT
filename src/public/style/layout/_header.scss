@@ -1,0 +1,47 @@
+header {
+    section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px;
+        span {
+            width: 100vw;
+            border: 2px solid $blueColor;
+        }
+        img {
+            height: 220px;
+        }
+        nav {
+            ul {
+                display: flex;
+                text-transform: uppercase;
+                justify-content: space-around;
+                font-size: 1.4rem;
+                margin-bottom: 25px;
+                align-items: center;
+                gap: 50px;
+                li {
+                    list-style-type: none;
+                    border: 1px solid $blueColor;
+                    text-align: center;
+                    padding: 10px 15px;
+                    min-width: 218px;
+                    position: relative;
+                    z-index: 1000;
+                    transition: all 0.1s ease-in-out;
+                    &:hover {
+                        transform: translate(-3px, -6px);
+                        box-shadow: $greyColor 10px 10px 0px -1px, $blueColor 10px 10px;
+                    }
+                    a {
+                        z-index: 1001;
+                        text-decoration: none;
+                        &:visited {
+                            color: $blueColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
