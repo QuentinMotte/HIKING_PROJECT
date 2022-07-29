@@ -8,6 +8,7 @@ require_once('app/controllers/userProfil.php');
 require_once('app/controllers/tags.php');
 require_once('app/controllers/singleHike.php');
 require_once('app/controllers/sortpage.php');
+require_once('app/controllers/updateHike.php');
 // require_once('app/views/subscription.php');
 require_once 'core/Request.php';
 require_once 'core/Router.php';
@@ -50,10 +51,18 @@ try {
             profilpage();
         } elseif ($_GET['action'] === 'logout') {
             logout();
+        } elseif ($_GET['action'] === 'deleteHike') {
+            deleteSingleHike();
         } elseif ($_GET['action'] === 'hike') {
             singleHike();
         } elseif ($_GET['action'] === 'sort') {
             sortPage();
+        } elseif ($_GET['action'] === 'editHike') {
+            // fetchUpdateTags();
+            updateSingleHike();
+            if ($_POST) {
+                updateHikes($_POST);
+            }
         } else {
             throw new Exception('Aucun identifiant ');
         }
@@ -63,3 +72,5 @@ try {
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
 }
+
+

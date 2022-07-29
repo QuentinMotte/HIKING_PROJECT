@@ -13,3 +13,13 @@ function fetchTags()
     require('app/views/createHikes.php');
 
 }
+
+function fetchUpdateTags()
+{
+    $tagRepository = new TagRepository();
+    $tagRepository->connection = new DatabaseConnection();
+    $tags = $tagRepository->getTags();
+
+    require('app/views/updateHike.php');
+
+}

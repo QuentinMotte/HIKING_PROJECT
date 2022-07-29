@@ -3,8 +3,6 @@ require_once('app/lib/database.php');
 // require_once('app/models/createHikes.php');
 require_once('app/models/Hikes.php');
 
-
-
 function getViewCreateHikes()
 {
     require('app/views/createHikes.php');
@@ -12,7 +10,6 @@ function getViewCreateHikes()
 
 function addHikes(array $input)
 {
-
 
     $name_hikes = null;
     $distance = null;
@@ -45,4 +42,24 @@ function addHikes(array $input)
     if (!$idAdded) {
         throw new Exception('Erreur !');
     }
+
+    $createIdTagRepository = new CreateHikesRepository();
+    $createIdTagRepository->connection = new DatabaseConnection();
+    $idTagAdded = $createIdRepository->getIdTagForInsertIntoHikesTags();
+    // print_r($idTagAdded);  /////  TEST AFFICHAGE ID 
+
+    if (!$idTagAdded) {
+        throw new Exception('Erreur !');
+    }
+
+    $createIdTagDifficultyRepository = new CreateHikesRepository();
+    $createIdTagDifficultyRepository->connection = new DatabaseConnection();
+    $idTagDifficultyAdded = $createIdRepository->getIdTagDifficultyForInsertIntoHikesTags();
+    // print_r($_POST);  /////  TEST AFFICHAGE ID 
+
+    if (!$idTagDifficultyAdded) {
+        throw new Exception('Erreur !');
+    }
 }
+
+

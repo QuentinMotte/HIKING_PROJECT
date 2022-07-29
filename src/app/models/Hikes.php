@@ -19,6 +19,8 @@ class HikeRepository
 {
     public DatabaseConnection $connection;
 
+// ------------------------------------------
+
     public function getHikes(): array
     {
         $statement = $this->connection->getConnection()->query(
@@ -42,13 +44,14 @@ class HikeRepository
         return $hikes;
     }
 
+// ------------------------------------------
+
     public function getSingleHike(): Hike
     {
         $statement = $this->connection->getConnection()->prepare(
             "SELECT * FROM HIKES WHERE id_hikes = " . $_GET['id']
             // "SELECT * FROM HIKES INNER JOIN HIKESUSERS ON id_hikes = id_hike WHERE id_hikes = " . $_GET['id']
         );
-
 
         $statement->execute();
             $row = $statement->fetch();
@@ -65,12 +68,14 @@ class HikeRepository
             return $hike;
     }
 
+    // ------------------------------------------
+
     public function getHikeTag(): array
     {
         $statement = $this->connection->getConnection()->query(
             "SELECT * FROM HIKES INNER JOIN HIKESTAGS ON id_hikes = id_hike WHERE id_tag =" . $_GET[ "id" ]
         );
-       
+
         $hikes = [];
         while (($row = $statement->fetch())) {
             $hike = new Hike();
@@ -87,7 +92,47 @@ class HikeRepository
         }
         return $hikes;
     }
+
+    // ------------------------------------------
+
+    public function deleteHike(): void
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "DELETE FROM HIKES WHERE id_hikes = " . $_GET['id']
+        );
+        $statement->execute();
+    }
+
+        // ------------------------------------------
+
+    public function updateHike(): void
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "UPDATE HIKES SET name_hikes = ?, distance = ?, duration = ?, elevation_gain = ?, description = ? WHERE id_hikes = ?"
+        );
+
+        // for ($i=0; $i<count($_POST["tag"]); $i++)
+        // {
+            // $statement2 = $this->connection->getConnection()->prepare
+            // (
+            //     "UPDATE HIKESTAGS SET id_tag = ? WHERE id_hike = ?"
+            // );
+
+        // }
+
+        $statement3 = $this->connection->getConnection()->prepare(
+            "UPDATE HIKESTAGS SET id_tag = ? WHERE id_hike = ?"
+        );
+
+        $statement->execute(array($_POST["name_hikes"], $_POST["distance"], $_POST["duration"], $_POST["elevation_gain"], $_POST["description"], $_GET["id"]));
+        //  $_POST[name_hikes], $_POST[distance], $_POST[duration], $_POST[elevation_gain], $_POST[description]  $_GET[id]
+        // $statement2->execute(array($_POST["tag"][0], $_GET['id']));
+        $statement3->execute(array($_POST["tagDifficulty"][0], $_GET["id"]));
+        
+    }
 }
+
+
 
 class createHikes
 {
@@ -141,7 +186,53 @@ class CreateHikesRepository
 
         return ($affectedID > 0);
     }  
+
+    public function getIdTagForInsertIntoHikesTags()
+{
+    for ($i=0; $i<count($_POST["tag"]); $i++) {
+        $statement = $this->connection->getConnection()->query(
+            "SELECT id_tag FROM TAGS WHERE name_tag = '" . $_POST["tag"][$i] . "'"
+        );
+
+        $statement2 = $this->connection->getConnection()->query(
+            "SELECT MAX(id_hikes) FROM HIKES;"
+        );
+
+        $idHike = $statement2->fetch();
+        $idTag = $statement->fetch();
+
+        $statement3 = $this->connection->getConnection()->prepare(
+            'INSERT INTO HIKESTAGS(id_tag,id_hike) VALUES(?,?)'
+        );
+        $affectedID = $statement3->execute([ $idTag[0], $idHike[0]]);
+    }
+
+    return ($affectedID > 0);
+}
+
+    public function getIdTagDifficultyForInsertIntoHikesTags()
+    {
+        $statement = $this->connection->getConnection()->query(
+            "SELECT id_tag FROM TAGS WHERE name_tag = '" . $_POST["tagDifficulty"] . "'"
+        );
+
+        $statement2 = $this->connection->getConnection()->query(
+            "SELECT MAX(id_hikes) FROM HIKES;"
+        );
+
+        $idHike = $statement2->fetch();
+        $idTag = $statement->fetch();
+
+        $statement3 = $this->connection->getConnection()->prepare(
+            'INSERT INTO HIKESTAGS(id_tag,id_hike) VALUES(?,?)'
+        );
+
+        $affectedID = $statement3->execute([$idTag[0], $idHike[0]]);
+
+        return ($affectedID > 0);
+    }
 }
 
 
 // SELECT * FROM HIKES INNER JOIN HIKESTAGS ON id_hikes = id_hike WHERE id_tag = 3 ORDER BY id_hikes desc;
+

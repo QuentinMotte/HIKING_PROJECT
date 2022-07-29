@@ -15,7 +15,7 @@
 
 <div class="hikeCard">
     <img class="hikeCard-img" src="img/logo.png">
-    <iframe src="https://giphy.com/embed/2hf0ufsIWT2lkXam5w" frameBorder="0" class="hikeCard-img" allowFullScreen></iframe>
+    <!-- <iframe src="https://giphy.com/embed/2hf0ufsIWT2lkXam5w" frameBorder="0" class="hikeCard-img" allowFullScreen></iframe> -->
     <h3 class="hikeCard-title" ><?= htmlspecialchars($hike->name); ?></h3>
     <p class="hikeCard-description" >distance : <?= $hike->distance; ?></p>
     <p class="hikeCard-description" >temps : <?= $hike->duration; ?></p>
