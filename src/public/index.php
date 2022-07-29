@@ -7,6 +7,7 @@ require_once('app/controllers/success.php');
 require_once('app/controllers/userProfil.php');
 require_once('app/controllers/tags.php');
 require_once('app/controllers/singleHike.php');
+require_once('app/controllers/sortpage.php');
 // require_once('app/views/subscription.php');
 require_once 'core/Request.php';
 require_once 'core/Router.php';
@@ -51,6 +52,8 @@ try {
             logout();
         } elseif ($_GET['action'] === 'hike') {
             singleHike();
+        } elseif ($_GET['action'] === 'sort') {
+            sortPage();
         } else {
             throw new Exception('Aucun identifiant ');
         }

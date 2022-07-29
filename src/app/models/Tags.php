@@ -23,7 +23,6 @@ class TagRepository
             $tag = new Tag();
             $tag->id = $row['id_tag'];
             $tag->name = $row['name_tag'];
-     
             $tags[] = $tag;
         }
         return $tags;

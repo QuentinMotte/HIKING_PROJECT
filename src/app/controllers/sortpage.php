@@ -1,21 +1,19 @@
 <?php
-// controllers/homepage.php
 session_start();
 
 require_once('app/lib/database.php');
 require_once('app/models/Hikes.php');
 require_once('app/models/Tags.php');
 
-
-function homepage()
+function sortPage()
 {
     $hikeRepository = new HikeRepository();
     $hikeRepository->connection = new DatabaseConnection();
-    $hikes = $hikeRepository->getHikes();
+    $hikes = $hikeRepository->getHikeTag();
 
     $tagRepository = new TagRepository();
     $tagRepository->connection = new DatabaseConnection();
     $tags = $tagRepository->getTags();
 
-    require('app/views/homepage.php');
+    require('app/views/sortpage.php');
 }

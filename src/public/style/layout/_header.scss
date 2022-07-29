@@ -36,6 +36,7 @@ header {
                     a {
                         z-index: 1001;
                         text-decoration: none;
+                        color: $blueColor;
                         &:visited {
                             color: $blueColor;
                         }

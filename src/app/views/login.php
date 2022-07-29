@@ -136,19 +136,3 @@ $password_err = "Please enter your password.";
 <?php
 include "includes/footer.php";
 ?>
-
-
-
-<!-- <h1>User Login</h1>
-
-<form method="post" action="">
-    <div>
-        <label for="nickname">Login :</label>
-        <input type="text" name="nickname">
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="text" name="password">
-    </div>
-    <button type="submit">Login</button>
-</form> -->

@@ -67,9 +67,68 @@ header section nav ul li:hover {
 header section nav ul li a {
   z-index: 1001;
   text-decoration: none;
+  color: rgb(36, 179, 184);
 }
 header section nav ul li a:visited {
   color: rgb(36, 179, 184);
+}
+
+.tag-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+.tag-container .navTag {
+  background: #F1F1F1;
+  color: rgb(91, 91, 91);
+  padding: 10px;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.tag-container .navTag a,
+.tag-container .navTag a:visited a:link {
+  color: rgb(91, 91, 91);
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+}
+.tag-container .navTag a:hover,
+.tag-container .navTag a:visited a:link:hover {
+  font-weight: 600;
+}
+.tag-container .navTag a::after {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(36, 179, 184);
+  bottom: -2px;
+  left: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.25s linear;
+  transition: -webkit-transform 0.25s linear;
+  transition: transform 0.25s linear;
+  transition: transform 0.25s linear, -webkit-transform 0.25s linear;
+  content: "";
+}
+.tag-container .navTag a:hover::after {
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 .card-container {
@@ -103,8 +162,6 @@ header section nav ul li a:visited {
   transition: all 0.1s ease-in-out;
 }
 .card-container .hikeCard:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
@@ -118,20 +175,20 @@ header section nav ul li a:visited {
 .card-container .hikeCard .hikeCard-title {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #000;
+  color: rgb(91, 91, 91);
   text-align: center;
 }
 .card-container .hikeCard .hikeCard-description {
   font-size: 1rem;
-  color: #000;
+  color: rgb(91, 91, 91);
   text-align: center;
 }
 .card-container .hikeCard .hikeCard-btn {
   background: #F1F1F1;
-  color: rgb(36, 179, 184);
+  color: rgb(91, 91, 91);
   padding: 10px;
   margin: 10px;
-  border: 1px solid rgb(36, 179, 184);
+  border: 1px solid rgb(91, 91, 91);
   font-size: 1rem;
   cursor: pointer;
   -webkit-transition: all 0.1s ease-in-out;
@@ -142,6 +199,7 @@ header section nav ul li a:visited {
           transform: translate(-1px, -2px);
   -webkit-box-shadow: #F1F1F1 5px 5px 0px -0.5px, rgb(36, 179, 184) 5px 5px;
           box-shadow: #F1F1F1 5px 5px 0px -0.5px, rgb(36, 179, 184) 5px 5px;
+  border: 1px solid rgb(36, 179, 184);
 }
 .card-container .hikeCard .hikeCard-btn a {
   text-decoration: none;
@@ -174,8 +232,6 @@ header section nav ul li a:visited {
 .container .hike {
   width: 100%;
   height: auto;
-  max-height: 300px;
-  overflow: hidden;
   padding: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,5 +250,137 @@ header section nav ul li a:visited {
 .container .hike .description {
   font-size: 1rem;
   color: #000;
+  text-align: left;
+}
+.container .hike .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.createHike-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.createHike-container .formCreateHike {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+  padding: 30px;
+}
+.createHike-container .formCreateHike .formCreateHike--name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.createHike-container .formCreateHike .formCreateHike--name .formCreateHike--label {
+  font-size: 2rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--name .formCreateHike--input {
+  width: 500px;
+  height: 50px;
+  border: 1px solid rgb(91, 91, 91);
+  padding: 10px;
+  background-color: #f7f7f7;
+  font-size: 1rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--distance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.createHike-container .formCreateHike .formCreateHike--distance .formCreateHike--label {
+  font-size: 2rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--distance .formCreateHike--input {
+  width: 100%;
+  height: 25px;
+  border: 1px solid rgb(255, 0, 0);
+  padding: 10px;
+  font-size: 1rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--duration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.createHike-container .formCreateHike .formCreateHike--duration .formCreateHike--label {
+  font-size: 2rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--duration .formCreateHike--input {
+  width: 100%;
+  height: 25px;
+  border: 1px solid rgb(255, 0, 0);
+  padding: 10px;
+  font-size: 1rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--elevation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.createHike-container .formCreateHike .formCreateHike--elevation .formCreateHike--label {
+  font-size: 2rem;
+  color: rgb(91, 91, 91);
+  text-align: left;
+}
+.createHike-container .formCreateHike .formCreateHike--elevation .formCreateHike--input {
+  width: 100%;
+  height: 25px;
+  border: 1px solid rgb(255, 0, 0);
+  padding: 10px;
+  font-size: 1rem;
+  color: rgb(91, 91, 91);
   text-align: left;
 }/*# sourceMappingURL=style.css.map */

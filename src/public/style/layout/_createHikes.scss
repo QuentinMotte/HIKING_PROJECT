@@ -1,0 +1,87 @@
+.createHike-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .formCreateHike{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: center;
+        width: 50%;
+        padding: 30px;
+        .formCreateHike--name{
+            display: flex;
+            flex-direction: column;
+            .formCreateHike--label{
+                font-size: 2rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+            .formCreateHike--input{
+                width: 500px;
+                height: 50px;
+                border: 1px solid $greyDarkColor;
+                padding: 10px;
+                background-color: #f7f7f7;
+                font-size: 1rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+        }
+        .formCreateHike--distance{
+            display: flex;
+            flex-direction: column;
+            .formCreateHike--label{
+                font-size: 2rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+            .formCreateHike--input{
+                width: 100%;
+                height: 25px;
+                border: 1px solid rgb(255, 0, 0);
+                padding: 10px;
+                font-size: 1rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+        }
+        .formCreateHike--duration{
+            display: flex;
+            flex-direction: column;
+            .formCreateHike--label{
+                font-size: 2rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+            .formCreateHike--input{
+                width: 100%;
+                height: 25px;
+                border: 1px solid rgb(255, 0, 0);
+                padding: 10px;
+                font-size: 1rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+        }
+        .formCreateHike--elevation{
+            display: flex;
+            flex-direction: column;
+            .formCreateHike--label{
+                font-size: 2rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+            .formCreateHike--input{
+                width: 100%;
+                height: 25px;
+                border: 1px solid rgb(255, 0, 0);
+                padding: 10px;
+                font-size: 1rem;
+                color: $greyDarkColor;
+                text-align: left;
+            }
+        }
+    }
+}
