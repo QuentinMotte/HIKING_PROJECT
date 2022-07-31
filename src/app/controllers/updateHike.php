@@ -9,11 +9,12 @@ function getViewUpdateHikes()
     require('app/views/updateHike.php');
 }
 
-function updateHikes ()
+function updateHikes()
 {
     $updateHikesRepository = new HikeRepository();
     $updateHikesRepository->connection = new DatabaseConnection();
     $success = $updateHikesRepository->updateHike();
+
     if (!$success) {
         throw new Exception('Erreur !');
     }
