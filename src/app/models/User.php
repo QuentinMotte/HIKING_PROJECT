@@ -21,10 +21,20 @@ class UserRepository
         $statement = $this->connection->getConnection()->prepare(
             'INSERT INTO USERS(firstname, lastname,nickname,email,password) VALUES(?,?,?,?,?)'
         );
-
+        function valid_donnees($donnees)
+        {
+            $donnees = trim($donnees);
+            $donnees = stripslashes($donnees);
+            $donnees = htmlspecialchars($donnees);
+            return $donnees;
+        }
+        $firstnameverif = valid_donnees($firstname);
+        $lastnameverif = valid_donnees($lastname);
+        $nicknameverif = valid_donnees($nickname);
+        $emailverif = valid_donnees($email);
         $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
 
-        $affectedLines = $statement->execute([$firstname, $lastname, $nickname, $email, $passwordHashed]);
+        $affectedLines = $statement->execute([$firstnameverif, $lastnameverif, $nicknameverif, $emailverif, $passwordHashed]);
         return ($affectedLines > 0);
     }
 }

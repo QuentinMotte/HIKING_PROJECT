@@ -14,7 +14,10 @@ function addUser(array $input)
     $nickname = null;
     $email = null;
     $password = null;
-    if (!empty($input['firstname']) && !empty($input['lastname']) && !empty($input['nickname']) && !empty($input['email']) && !empty($input['password'])) {
+    if (
+        !empty($input['firstname']) && !empty($input['lastname']) && !empty($input['nickname']) && !empty($input['email'])
+        && filter_var($input['email'], FILTER_VALIDATE_EMAIL) && !empty($input['password'])
+    ) {
         $firstname = $input['firstname'];
         $lastname = $input['lastname'];
         $nickname = $input['nickname'];
