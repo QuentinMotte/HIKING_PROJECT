@@ -18,7 +18,6 @@ function updateHikes()
     if (!$success) {
         throw new Exception('Erreur !');
     }
-    print_r($success);
 }
 
 function updateSingleHike()
@@ -30,6 +29,5 @@ function updateSingleHike()
     $tagRepository = new TagRepository();
     $tagRepository->connection = new DatabaseConnection();
     $tags = $tagRepository->getTags();
-    print_r($_POST);
     require('app/views/updateHike.php');
 }

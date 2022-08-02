@@ -9,7 +9,8 @@ require_once('app/controllers/tags.php');
 require_once('app/controllers/singleHike.php');
 require_once('app/controllers/sortpage.php');
 require_once('app/controllers/updateHike.php');
-// require_once('app/views/subscription.php');
+
+
 require_once 'core/Request.php';
 require_once 'core/Router.php';
 require_once 'app/routes.php';

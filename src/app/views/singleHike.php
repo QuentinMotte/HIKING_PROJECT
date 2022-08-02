@@ -2,15 +2,36 @@
 
 <div class="container">
     <div class="img-container">
-        <img class="img" src="img/logo.png">
+        <img class="img" src="
+        <?php 
+    if($hike->image == null)
+    {
+        echo "img/logo.png";
+    }
+    else
+    {
+        echo $hike->image;
+    }
+        ?>">
     </div>
     <div class="hike">
         <h3 class="title" ><?= htmlspecialchars($hike->name); ?></h3>
-        <p class="description" >distance : <?= $hike->distance; ?></p>
-        <p class="description" >temps : <?= $hike->duration; ?></p>
-        <p class="description" >dénivelé : <?= $hike->elevation; ?></p>
-        <p class="description" >description : <?= $hike->description; ?></p>
-        <p class="description" >creation date : <?= $hike->creationDate; ?></p>
+        <p class="description" ><i class="fa-solid fa-person-walking-arrow-right"></i><span> Distance :</span>  <?= $hike->distance; ?></p>
+        <p class="description" ><i class="fa-solid fa-clock"></i><span> Temps :</span>  <?= $hike->duration; ?></p>
+        <p class="description" ><i class="fa-solid fa-arrow-trend-up"></i><span> Dénivelé : </span> <?= $hike->elevation; ?></p>
+        <p class="description" > <i class="fa-solid fa-scroll"></i>   <span> Description : </span> <?= $hike->description; ?></p>
+        <div class="tags"> 
+        <?php 
+        foreach($tags as $tag)
+        {
+            echo '<p class="description" ><i class="fa-solid fa-tag"></i> ' . $tag->name . '</p>';
+        }
+        ?></div>
+        <p class="description" >creation date : <?= $hike->creationDate; ?></p></div>
+        
+    
+</div>
+<div class="btnContainer">
         <?php
         if (isset($_SESSION['id_user'])) {
             if ($_SESSION['id_user'] == $_GET['iduser']) {
@@ -21,8 +42,7 @@
             }
         }
         ?>
-    </div>
-</div>
+        </div>
 
 <?php include 'app/views/includes/footer.php' ?>
 

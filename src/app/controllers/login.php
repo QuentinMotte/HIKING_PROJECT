@@ -2,7 +2,7 @@
 // controllers/homepage.php
 
 require_once('app/lib/database.php');
-require_once('app/models/login.php');
+require_once('app/models/Login.php');
 
 
 function loginpage()

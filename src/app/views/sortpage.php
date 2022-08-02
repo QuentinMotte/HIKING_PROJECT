@@ -13,7 +13,18 @@
 <?php foreach ($hikes as $hike) { ?>
 
 <div class="hikeCard">
-    <img class="hikeCard-img" src="img/logo.png">
+<img class="hikeCard-img" src="
+    <?php 
+    if($hike->image == null)
+    {
+        echo "img/logo.png";
+    }
+    else
+    {
+        echo $hike->image;
+    }
+        ?>
+        ">
     <h3 class="hikeCard-title" ><?= htmlspecialchars($hike->name); ?></h3>
     <p class="hikeCard-description" >distance : <?= $hike->distance; ?></p>
     <p class="hikeCard-description" >temps : <?= $hike->duration; ?></p>
