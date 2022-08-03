@@ -10,6 +10,7 @@ require_once('app/controllers/singleHike.php');
 require_once('app/controllers/sortpage.php');
 require_once('app/controllers/updateHike.php');
 require_once('app/controllers/userAdminPage.php');
+require_once('app/controllers/updateUser.php');
 
 
 require_once 'core/Request.php';
@@ -59,7 +60,8 @@ try {
             deleteSingleHike();
         } elseif ($_GET['action'] === 'deleteUser') {
             deleteSingleUser();
-            
+        } elseif ($_GET['action'] === 'updateUser') {
+            getViewUpdateUser();
         }elseif ($_GET['action'] === 'hike') {
             singleHike();
         } elseif ($_GET['action'] === 'sort') {

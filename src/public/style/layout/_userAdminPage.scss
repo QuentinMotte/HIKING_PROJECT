@@ -33,9 +33,8 @@
                     color: $blueColor;
                 }
                 &:hover {
-                        transform: translate(-1px, -2px);
-                        box-shadow: $greyColor 5px 5px 0px -0.5px, $blueColor 5px 5px;
-                        border: 1px solid $blueColor;
+                        
+                      outline: 1px solid $blueColor;
             }
             
         }

@@ -128,8 +128,6 @@ class HikeRepository
         header("location: index.php");
     }
 
-    // ------------------------------------------
-
     public function updateHike()
     {
         $statement = $this->connection->getConnection()->prepare(
@@ -150,13 +148,10 @@ class HikeRepository
     // }
         $statement1->execute();
 
-        //-----------------
         $statement3 = $this->connection->getConnection()->prepare(
             'INSERT INTO HIKESTAGS(id_tags,id_hike) VALUES(?,?)'
         );
         $affectedIDTAG = $statement3->execute(array($_POST["tagDifficulty"][0], $_GET["id"]));
-
-        //--------------------------------
 
         for ($i = 0; $i < count($_POST["tag"]); $i++) {
             $statement4 = $this->connection->getConnection()->prepare(
@@ -165,7 +160,8 @@ class HikeRepository
             $affectedID =  $statement4->execute(array($_POST["tag"][$i], $_GET['id']));
 
         }
-        header("location: index.php");
+     
+        header('location:index.php');
         return ($affectedIDTAG > 0) ?? 'default value';
         return ($affectedID > 0) ?? 'default value';
     }

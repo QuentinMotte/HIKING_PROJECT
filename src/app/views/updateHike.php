@@ -3,6 +3,7 @@
 
 <section class="createHike-container">
     <form class="formCreateHike" name="create" action="index.php?action=editHike&id=<?= $hike->id ?>" method="post">
+    
         <div class="formCreateHike--name">
             <label class="formCreateHike--label" for="name_hikes">Hike name :</label>
             <input class="formCreateHike--input" autocomplete="off" type="text" value="<?= $hike->name ?>" name="name_hikes" required>
@@ -62,7 +63,7 @@
             </div>
             <input pattern="^(http(s?):)([/|.|\w|\s|-])*.(?:jpg|gif|png)$" class="formCreateHike--input" autocomplete="off" type="text" value="<?= $hike->image ?>" name="img_hikes"/>
         </div>
-        <button class="formCreateHike--subBtn" type="submit">Update</button>
+        <button class="formCreateHike--subBtn" name="submit" type="submit">Update</button>
     </form>
 </section>
 

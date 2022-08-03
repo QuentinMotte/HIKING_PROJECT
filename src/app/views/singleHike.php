@@ -27,7 +27,8 @@
             echo '<p class="description" ><i class="fa-solid fa-tag"></i> ' . $tag->name . '</p>';
         }
         ?></div>
-        <p class="description" >creation date : <?= $hike->creationDate; ?></p></div>
+        <p class="description" >creation date : <?= $hike->creationDate; ?></p>
+    </div>
         
     
 </div>

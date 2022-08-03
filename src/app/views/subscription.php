@@ -34,10 +34,10 @@
         <div class="subForm_desc">
             <label for="description">Choose The Way You Are : </label>
             <select name="users_description" id="description">
-                <option value="Aventurier Fougueux">Aventurier Fougueux</option>
-                <option value="Baladeur Paisible">Baladeur Paisible</option>
-                <option value="Explorateur Intrépide">Explorateur Intrépide</option>
-                <option value="Voyageur de l'Extreme">Voyageur de l'Extreme</option>
+                <option value="Fiery Adventurer">Fiery Adventurer</option>
+                <option value="Peaceful Hiker">Peaceful Hiker</option>
+                <option value="Intrepid Explorer">Intrepid Explorer</option>
+                <option value="Extreme traveler">Extreme traveler</option>
             </select>
         </div>
 
@@ -46,8 +46,8 @@
             <p class="avatar_title">Choose Your Avatar :</p>
 
             <label for="avatar1">
-              <input type="radio" name="users_avatar" value="img/avatar_profil/avatar_shinra.webp" id="avatar1">
-              <img src="img/avatar_profil/avatar_shinra.webp" alt="avatar1">
+              <input type="radio" name="users_avatar" value="img/avatar_profil/avatar_gon.jpg" id="avatar1">
+              <img src="img/avatar_profil/avatar_gon.jpg" alt="avatar1">
             </label>
 
             <label for="avatar2">
@@ -56,8 +56,8 @@
             </label>
             
             <label for="avatar3">
-              <input type="radio" name="users_avatar" value="img/avatar_profil/avatar_gon.jpg" id="avatar3">
-              <img src="img/avatar_profil/avatar_gon.jpg" alt="avatar3">
+              <input type="radio" name="users_avatar" value="img/avatar_profil/avatar_asuka.jpg" id="avatar3">
+              <img src="img/avatar_profil/avatar_asuka.jpg" alt="avatar3">
             </label>
 
             <label for="avatar4">
@@ -76,8 +76,8 @@
             </label>
 
             <label for="avatar7">
-              <input type="radio" name="users_avatar" value="img/avatar_profil/avatar_kirua.jpg"  id="avatar7">
-              <img src="img/avatar_profil/avatar_kirua.jpg" alt="avatar7">
+              <input type="radio" name="users_avatar" value="img/avatar_profil/avatar_sakura.jpg"  id="avatar7">
+              <img src="img/avatar_profil/avatar_sakura.jpg" alt="avatar7">
             </label>
 
             <label for="avatar8">
