@@ -36,7 +36,7 @@ class LoginRepository
             // Validate credentials
             if (empty($nickname_err) && empty($password_err)) {
                 // Prepare a select statement
-                $sql = "SELECT id_user, nickname, password FROM USERS WHERE nickname = :nickname";
+                $sql = "SELECT id_user, nickname, password, is_admin FROM USERS WHERE nickname = :nickname";
 
                 if ($stmt = $this->connection->getConnection()->prepare($sql)) {
                     // Bind variables to the prepared statement as parameters
@@ -53,6 +53,7 @@ class LoginRepository
                                 $id = $row["id_user"];
                                 $nickname = $row["nickname"];
                                 $hashed_password = $row["password"];
+                                $admin = $row["is_admin"];
                                 if (password_verify($password, $hashed_password)) {
                                     // Password is correct, so start a new session
 
@@ -63,10 +64,11 @@ class LoginRepository
                                     $_SESSION["loggedin"] = true;
                                     $_SESSION["id_user"] = $id;
                                     $_SESSION["nickname"] = $nickname;
+                                    $_SESSION['admin'] = $admin;
 
 
 
-                                    // Redirect user to the homepage.php page with the message "You are now logged in"
+                                    // Redirect user to the homepage.php page with the message ""
                                     header("location: index.php?action=success");
                                 } else {
                                     // Password is not valid, display a generic error message

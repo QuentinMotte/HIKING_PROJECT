@@ -9,6 +9,7 @@ require_once('app/controllers/tags.php');
 require_once('app/controllers/singleHike.php');
 require_once('app/controllers/sortpage.php');
 require_once('app/controllers/updateHike.php');
+require_once('app/controllers/userAdminPage.php');
 
 
 require_once 'core/Request.php';
@@ -37,29 +38,33 @@ try {
                 addUser($_POST);
             }
         } elseif ($_GET['action'] === 'login') {
-            loginpage();
+            viewLoginPage();
+            if($_POST){
+                loginpage($_POST);
+            }
         } elseif ($_GET['action'] === 'createhikes') {
-            // getViewCreateHikes();
             fetchTags();
-            //  print_r(getIDHikes());
-
             if ($_POST) {
                 addHikes($_POST);
             }
         } elseif ($_GET['action'] === 'success') {
             successpage();
+        } elseif ($_GET['action'] === 'allUsers') {
+            userAdminPage();
         } elseif ($_GET['action'] === 'profil') {
             profilpage();
         } elseif ($_GET['action'] === 'logout') {
             logout();
         } elseif ($_GET['action'] === 'deleteHike') {
             deleteSingleHike();
-        } elseif ($_GET['action'] === 'hike') {
+        } elseif ($_GET['action'] === 'deleteUser') {
+            deleteSingleUser();
+            
+        }elseif ($_GET['action'] === 'hike') {
             singleHike();
         } elseif ($_GET['action'] === 'sort') {
             sortPage();
         } elseif ($_GET['action'] === 'editHike') {
-            // fetchUpdateTags();
             updateSingleHike();
             if ($_POST) {
                 updateHikes($_POST);

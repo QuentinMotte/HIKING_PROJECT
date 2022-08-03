@@ -9,17 +9,19 @@ class User
     public string $nickname;
     public string $email;
     public string $password;
+    public string $avatar;
+    public string $description;
 }
 
 class UserRepository
 {
     public DatabaseConnection $connection;
 
-    public function createUser(string $firstname, string $lastname, string $nickname, string $email, string $password)
+    public function createUser(string $firstname, string $lastname, string $nickname, string $email, string $password, string $avatar, string $description)
     {
 
         $statement = $this->connection->getConnection()->prepare(
-            'INSERT INTO USERS(firstname, lastname,nickname,email,password) VALUES(?,?,?,?,?)'
+            'INSERT INTO USERS(firstname, lastname,nickname,email,password,users_avatar,users_description) VALUES(?,?,?,?,?,?,?)'
         );
         function valid_donnees($donnees)
         {
@@ -33,8 +35,10 @@ class UserRepository
         $nicknameverif = valid_donnees($nickname);
         $emailverif = valid_donnees($email);
         $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
+        $avatarverif = valid_donnees($avatar);
+        $descriptionverif = valid_donnees($description);
 
-        $affectedLines = $statement->execute([$firstnameverif, $lastnameverif, $nicknameverif, $emailverif, $passwordHashed]);
+        $affectedLines = $statement->execute([$firstnameverif, $lastnameverif, $nicknameverif, $emailverif, $passwordHashed, $avatarverif, $descriptionverif]);
         return ($affectedLines > 0);
     }
 }
@@ -47,6 +51,9 @@ class UserProfil
     public string $nickname;
     public string $email;
     public string $password;
+    public string $admin;
+    public string $avatar;
+    public string $userDescription;
 }
 
 class UserProfilRepository
@@ -67,9 +74,49 @@ class UserProfilRepository
             $user->nickname = $row['nickname'];
             $user->email = $row['email'];
             $user->password = $row['password'];
+            $user->admin = $row['is_admin'];
+            $user->avatar = $row['users_avatar'];
+            $user->userDescription = $row['users_description'];
 
             $users[] = $user;
         }
         return $users;
     }
 }
+class UserAdminProfilRepository
+{
+    public DatabaseConnection $connection;
+
+    public function getAllUsers(): array
+    {
+        $statement = $this->connection->getConnection()->query(
+            "SELECT * FROM USERS "
+        );
+        $usersProfil = [];
+        while (($row = $statement->fetch())){
+            $userProfil = new User();
+        
+            $userProfil->id = $row['id_user'];
+            $userProfil->firstname = $row['firstname'];
+            $userProfil->lastname = $row['lastname'];
+            $userProfil->nickname = $row['nickname'];
+            $userProfil->email = $row['email'];
+            $userProfil->password = $row['password'];
+            $userProfil->admin = $row['is_admin'];
+            $userProfil->avatar = $row['users_avatar'];
+            $userProfil->userDescription = $row['users_description'];
+
+        $usersProfil[] = $userProfil;
+    }
+    return $usersProfil;
+    }
+    public function deleteUser(): void
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "DELETE FROM USERS WHERE nickname = '" . $_GET["nickname"] . "'"
+        );
+        $statement->execute();
+        header("location: index.php?action=allUsers");
+    }
+}
+

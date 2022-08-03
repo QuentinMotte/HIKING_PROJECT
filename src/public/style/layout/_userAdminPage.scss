@@ -1,0 +1,45 @@
+.users-container{
+    .userDB{
+        .title-user{
+            text-transform: uppercase;
+            margin-top: -20px;
+            font-weight: 700;
+        }
+        ul{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            list-style-type: none ;
+            align-items: center;
+            border-bottom: 1px solid $greyDarkColor;
+            padding-left: 50px;
+            
+            li{
+                border-right: 1px solid $greyDarkColor;
+                padding: 20px 10px;
+            }
+            a{
+                
+                padding:20px ;
+                background: $greyColor;
+                color: $greyDarkColor;
+                font-weight: 700;
+                // border: 2px solid $greyDarkColor;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.1s ease-in-out;
+                text-decoration: none;
+                color: $blueColor;
+                &:visited {
+                    color: $blueColor;
+                }
+                &:hover {
+                        transform: translate(-1px, -2px);
+                        box-shadow: $greyColor 5px 5px 0px -0.5px, $blueColor 5px 5px;
+                        border: 1px solid $blueColor;
+            }
+            
+        }
+        
+
+    }
+}}

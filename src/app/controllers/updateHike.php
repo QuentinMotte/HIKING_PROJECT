@@ -4,10 +4,10 @@ require_once('app/lib/database.php');
 require_once('app/models/Hikes.php');
 require_once('app/models/Tags.php');
 
-function getViewUpdateHikes()
-{
-    require('app/views/updateHike.php');
-}
+// function getViewUpdateHikes()
+// {
+//     require('app/views/updateHike.php');
+// }
 
 function updateHikes()
 {
@@ -18,6 +18,7 @@ function updateHikes()
     if (!$success) {
         throw new Exception('Erreur !');
     }
+    header("Location: index.php");
 }
 
 function updateSingleHike()

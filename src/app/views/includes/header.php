@@ -67,6 +67,11 @@
                         echo '<li><a href="index.php?action=createhikes">Create hikes</a></li>';
                     }
                     ?>
+                    <?php
+                    if ($_SESSION["admin"] == "true") {
+                        echo '<li><a href="index.php?action=allUsers">Users</a></li>';
+                    }
+                    ?>
                 </ul>
             </nav>
             <span class="border_logo_bottom"></span>

@@ -3,6 +3,9 @@
 
 require_once('app/lib/database.php');
 require_once('app/models/Login.php');
+function viewLoginPage(){
+    require('app/views/login.php');
+}
 
 
 function loginpage()
@@ -19,6 +22,7 @@ function logout()
     unset($_SESSION["loggedin"]);
     unset($_SESSION["id_user"]);
     unset($_SESSION["nickname"]);
+    unset($_SESSION['admin']);
 
     require('app/views/logout.php');
 }

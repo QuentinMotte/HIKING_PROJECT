@@ -34,7 +34,7 @@
 <div class="btnContainer">
         <?php
         if (isset($_SESSION['id_user'])) {
-            if ($_SESSION['id_user'] == $_GET['iduser']) {
+            if ($_SESSION['id_user'] == $_GET['iduser'] || $_SESSION["admin"] == "true") {
                 echo '<div class="btn-container">';
                 echo '<div class="btn" ><a href="index.php?action=editHike&id=' . $hike->id . '">EDIT</a></div>';
                 echo '<div class="btn" ><a href="index.php?action=deleteHike&id=' . $hike->id . '">DELETE</a></div>';

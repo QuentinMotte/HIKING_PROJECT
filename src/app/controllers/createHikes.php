@@ -62,6 +62,7 @@ function addHikes(array $input)
     if (!$idTagDifficultyAdded) {
         throw new Exception('Erreur !');
     }
+
 }
 
 

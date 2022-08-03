@@ -125,6 +125,7 @@ class HikeRepository
             "DELETE FROM HIKES WHERE id_hikes = " . $_GET['id']
         );
         $statement->execute();
+        header("location: index.php");
     }
 
     // ------------------------------------------
@@ -162,7 +163,9 @@ class HikeRepository
                 'INSERT INTO HIKESTAGS(id_tags,id_hike) VALUES(?,?)'
             );
             $affectedID =  $statement4->execute(array($_POST["tag"][$i], $_GET['id']));
+
         }
+        header("location: index.php");
         return ($affectedIDTAG > 0) ?? 'default value';
         return ($affectedID > 0) ?? 'default value';
     }
@@ -211,6 +214,7 @@ class CreateHikesRepository
         $affectedLines = $statement->execute([$name_hikesVerif, $distanceVerif, $durationVerif, $elevation_gainVerif, $descriptionVerif, $img_hikesVerif]);
 
         return ($affectedLines > 0);
+        
     }
 
     public function getIdHikes()
@@ -278,5 +282,6 @@ class CreateHikesRepository
         $affectedID = $statement3->execute([$idTag[0], $idHike[0]]);
 
         return ($affectedID > 0);
+        
     }
 }

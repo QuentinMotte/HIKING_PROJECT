@@ -9,7 +9,7 @@ $password_err = "Please enter your password.";
 <?php include "includes/header.php"; ?>
 
 <div class="wrapper">
-    <h2>Login</h2>
+    <h2>Login for run the world !</h2>
     <p>Please fill in to login.</p>
 
     <?php
@@ -32,7 +32,7 @@ $password_err = "Please enter your password.";
         <div>
             <input type="submit" value="Login">
         </div>
-        <p>Don't have an account? <a href="subscription.php">Sign up now</a>.</p>
+        <p>Don't have an account? <a href="index.php?action=register">Sign up now</a>.</p>
     </form>
 </div>
 
