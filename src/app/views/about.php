@@ -16,9 +16,9 @@
         </div>
 
         <div class="aboutContainer__kevin--network">
-            <a href=""><i class="fa-brands fa-github"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+            <a target="_blank" href="https://github.com/Kiks4000"><i class="fa-brands fa-github"></i></a>
+            <a target="_blank" href="https://twitter.com/KiksOnTwitch"><i class="fa-brands fa-twitter"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/kevinkiks/"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
 
         <div class="aboutContainer__kevin--testimonial">
@@ -39,9 +39,9 @@
         </div>
 
         <div class="aboutContainer__quentin--network">
-            <a href=""><i class="fa-brands fa-github"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+            <a target="_blank" href=""><i class="fa-brands fa-github"></i></a>
+            <a target="_blank" href=""><i class="fa-brands fa-twitter"></i></a>
+            <a target="_blank" href=""><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
 
         <div class="aboutContainer__quentin--testimonial">
@@ -62,9 +62,9 @@
         </div>
 
         <div class="aboutContainer__melih--network">
-            <a href=""><i class="fa-brands fa-github"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+            <a target="_blank" href=""><i class="fa-brands fa-github"></i></a>
+            <a target="_blank" href=""><i class="fa-brands fa-twitter"></i></a>
+            <a target="_blank" href=""><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
 
         <div class="aboutContainer__melih--testimonial">

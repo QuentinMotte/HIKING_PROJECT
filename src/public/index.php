@@ -1,5 +1,4 @@
 <?php
-echo ('coucou');
 require_once('app/controllers/homepage.php');
 require_once('app/controllers/subscription.php');
 require_once('app/controllers/login.php');
@@ -15,17 +14,16 @@ require_once('app/controllers/updateUser.php');
 
 require_once 'core/Request.php';
 require_once 'core/Router.php';
-require_once 'app/routes.php';
+require_once 'app/routes.php';   
 
 switch ($_GET['action']) {
     case 'register':
         if ($_POST) {
             addUser($_POST);
-        }
-        getViewSubscribe();
+        } getViewSubscribe();
         break;
     case 'login':
-        if ($_POST) {
+        if($_POST){
             loginpage($_POST);
         }
         viewLoginPage();
@@ -33,7 +31,7 @@ switch ($_GET['action']) {
     case 'createhikes':
         if ($_POST) {
             addHikes($_POST);
-        }
+        } 
         fetchTags();
         break;
     case 'success':
@@ -58,7 +56,7 @@ switch ($_GET['action']) {
         deleteSingleUser();
         break;
     case 'updateUser':
-        if ($_POST) {
+        if($_POST){
             updateProfilUser();
         }
         getViewUpdateUser();
@@ -76,7 +74,7 @@ switch ($_GET['action']) {
         homepage();
         break;
     case 'editHike':
-        if ($_POST) {
+        if($_POST){
             updateHikes($_POST);
         }
         updateSingleHike();

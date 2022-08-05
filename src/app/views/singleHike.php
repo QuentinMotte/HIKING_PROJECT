@@ -1,13 +1,4 @@
-<?php include "app/views/includes/header.php" 
-?>
-
-<!-- <script>
-var result = confirm("Want to delete?");
-if (result) {
-   alert(nice); 
-}
-</script> -->
-
+<?php include "app/views/includes/header.php" ?>
 
 <div class="container">
     <div class="img-container">
@@ -36,7 +27,7 @@ if (result) {
             echo '<p class="description" ><i class="fa-solid fa-tag"></i> ' . $tag->name . '</p>';
         }
         ?></div>
-        <p class="description" >creation date : <?= $hike->creationDate; ?></p>
+        <p class="description" >Creation date : <?= $hike->creationDate; ?></p>
     </div>
         
     
@@ -55,5 +46,3 @@ if (result) {
         </div>
 
 <?php include 'app/views/includes/footer.php' ?>
-
-

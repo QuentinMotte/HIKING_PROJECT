@@ -4,6 +4,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+    }
     .profil-img{
         display: flex;
         flex-direction: column;
@@ -59,6 +63,17 @@
         grid-row-gap: 0px;
         justify-content: center;
         align-items: center;
+
+
+        @media screen and (max-width: 1000px) {
+            justify-items: left;
+            padding-left: 20vw;
+            grid-column-gap: 100px;
+            height:250px;
+
+        }
+
+
         .userFirstname { 
             grid-area: 1 / 1 / 2 / 2; 
             display: grid;
@@ -84,12 +99,16 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr;
-            height: 20px;
+            height: 20px;                            
+            @media screen and (min-width: 1000px) {
+
+            }
             .userLastname-label{
                 font-size: 1.5rem;
                 color: $greyDarkColor;
                 text-align: left;
                 font-weight: 600;
+    
             }
             .userLastname-data{
                 font-size: 1.2rem;
@@ -123,13 +142,15 @@
             grid-area: 2 / 2 / 3 / 3; 
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 0.5fr 0.5fr;
             height: 20px;
+            
             .userMail-label{
                 font-size: 1.5rem;
                 color: $greyDarkColor;
                 text-align: left;
                 font-weight: 600;
+                
             }
             .userMail-data{
                 font-size: 1.2rem;
@@ -173,5 +194,14 @@
             text-decoration: underline;
         }
     }
+
+}
+
+@media screen and (min-width: 768px) {
+
+
+
+
+
 
 }

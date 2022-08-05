@@ -53,7 +53,7 @@
             <div class="explication-img">
                 <em>Please first upload your image on <a target="_blank" href="https://postimages.org">PostImages</a>.</em>
                 <br>
-                <em>Use the image resizer and select the size "for website & emails"
+                <em>Use the image resizer and select the size "for website & emails"</em>
                 <br>
                 <em>Then copy the direct link of your image on the input below.</em>
                 <br>
