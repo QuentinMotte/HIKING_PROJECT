@@ -12,10 +12,15 @@
 </head>
 
 <body>
-<div class="success-container">
-<h1>Goodbye</h1>
-<h3>Hope u gonna have a good walk ! </h3>
-<img src="img/hikegb.gif" alt="EatDatas" />
 
-<a href=index.php?action=home> return home </a>
+<?php
+    session_start();
+?>
+
+<div class="success-container">
+
+<img src="img/404_gif.gif" alt="404" />
+
+<a href=index.php?action=home&nickname=<?=$_SESSION["nickname"]?>> Return home </a></div>
+
 <?php include 'app/views/includes/footer.php' ?>

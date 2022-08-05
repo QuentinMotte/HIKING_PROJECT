@@ -63,6 +63,8 @@ function addHikes(array $input)
         throw new Exception('Erreur !');
     }
 
+    header('Location: index.php?action=home');
+
 }
 
 

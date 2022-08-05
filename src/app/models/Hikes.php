@@ -21,6 +21,14 @@ class HikeRepository
     public DatabaseConnection $connection;
 
     // ------------------------------------------
+    public function deleteHikeAdmin(): void
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "DELETE FROM HIKES WHERE id_hikes = " . $_GET["idHike"] 
+        );
+        $statement->execute();
+        header("location: index.php?action=allUsers");
+    }
 
     public function getHikes(): array
     {
@@ -91,6 +99,28 @@ class HikeRepository
         return $hikes;
 
     }
+    public function getHikesForAdmin() : array
+    {
+        $statement = $this->connection->getConnection()->query(
+            "SELECT * FROM HIKES "
+        );
+        $hikes = [];
+        while (($row = $statement->fetch())) {
+            $hike = new Hike();
+            $hike->id = $row['id_hikes'];
+            $hike->name = $row['name_hikes'];
+            $hike->creationDate = $row['date_creation'];
+            $hike->distance = $row['distance'];
+            $hike->duration = $row['duration'];
+            $hike->elevation = $row['elevation_gain'];
+            $hike->description = $row['description'];
+            $hike->image = $row['img_hikes'];
+
+            $hikes[] = $hike;
+        }
+        return $hikes;
+
+    }
 
     // ------------------------------------------
 
@@ -125,7 +155,7 @@ class HikeRepository
             "DELETE FROM HIKES WHERE id_hikes = " . $_GET['id']
         );
         $statement->execute();
-        header("location: index.php");
+        header("location: index.php?action=home");
     }
 
     public function updateHike()
@@ -151,19 +181,18 @@ class HikeRepository
         $statement3 = $this->connection->getConnection()->prepare(
             'INSERT INTO HIKESTAGS(id_tags,id_hike) VALUES(?,?)'
         );
-        $affectedIDTAG = $statement3->execute(array($_POST["tagDifficulty"][0], $_GET["id"]));
+        $statement3->execute(array($_POST["tagDifficulty"][0], $_GET["id"]));
 
         for ($i = 0; $i < count($_POST["tag"]); $i++) {
             $statement4 = $this->connection->getConnection()->prepare(
                 'INSERT INTO HIKESTAGS(id_tags,id_hike) VALUES(?,?)'
             );
-            $affectedID =  $statement4->execute(array($_POST["tag"][$i], $_GET['id']));
+            $statement4->execute(array($_POST["tag"][$i], $_GET['id']));
 
         }
-     
-        header('location:index.php');
-        return ($affectedIDTAG > 0) ?? 'default value';
-        return ($affectedID > 0) ?? 'default value';
+        // return ($affectedIDTAG > 0) ?? 'default value';
+        // return ($affectedID > 0) ?? 'default value';
+        return true;
     }
 }
 

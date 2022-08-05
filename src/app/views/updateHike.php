@@ -2,7 +2,7 @@
 
 
 <section class="createHike-container">
-    <form class="formCreateHike" name="create" action="index.php?action=editHike&id=<?= $hike->id ?>" method="post">
+    <form class="formCreateHike" name="create" action="" method="post">
     
         <div class="formCreateHike--name">
             <label class="formCreateHike--label" for="name_hikes">Hike name :</label>

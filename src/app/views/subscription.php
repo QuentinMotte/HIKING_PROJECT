@@ -8,17 +8,17 @@
         
         <div class="subForm_name">
             <label for="firstname">Firstname :</label>
-            <input type="text" name="firstname" required pattern="^[A-Za-z '-]+$">
+            <input type="text" name="firstname" autocomplete="off" required pattern="^[A-Za-z '-]+$">
         </div>
 
         <div class="subForm_lastname">
             <label for="lastname">Lastname :</label>
-            <input type="text" name="lastname" required pattern="^[A-Za-z '-]+$">
+            <input type="text" name="lastname" autocomplete="off" required pattern="^[A-Za-z '-]+$">
         </div>
 
         <div class="subForm_nickname">
             <label for="nickname">Pseudo :</label>
-            <input type="text" required name="nickname">
+            <input type="text" autocomplete="off" required name="nickname">
         </div>
 
         <div class="subForm_email">

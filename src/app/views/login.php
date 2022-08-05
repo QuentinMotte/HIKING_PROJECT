@@ -1,16 +1,35 @@
-<?php
-
-$login_err = "Invalid nickname or password.";
-$nickname_err = "Please enter nickname.";
-$password_err = "Please enter your password.";
-
-?>
-
 <?php include "includes/header.php"; ?>
 
-<div class="wrapper">
-    <h2>Login for run the world !</h2>
-    <p>Please fill in to login.</p>
+<div class="loginGlobalContainer">
+
+    <div class="loginTitle">
+        <h2>Login and start your journey on <em>HIKING THE WORLD</em></h2>
+    </div>
+
+    <form class="loginForm" action="" method="post">
+
+        <div class="loginForm__nicknameContainer">
+            <label>Nickname</label>
+            <input type="text" name="nickname" <?= (!empty($nickname_err)) ? 'is-invalid' : ''; ?> value="<?= $nickname; ?>">
+            <span><?= $nickname_err; ?></span>
+        </div>
+
+        <div class="loginForm__passwordContainer">
+            <label>Password</label>
+            <input type="password" name="password" <?= (!empty($password_err)) ? 'is-invalid' : ''; ?>>
+            <span><?= $password_err; ?></span>
+        </div>
+
+        <div class="loginForm__SubBtnContainer">
+            <input type="submit" value="Login">
+        </div>
+
+    </form>
+
+    <div class="loginSubNowContainer">
+            <p>Don't have an account?
+            <a href="index.php?action=register">Sign up now</a> !</p>
+        </div>
 
     <?php
     if (!empty($login_err)) {
@@ -18,22 +37,6 @@ $password_err = "Please enter your password.";
     }
     ?>
 
-    <form action="index.php?action=login" method="post">
-        <div>
-            <label>nickname</label>
-            <input type="text" name="nickname" <?php echo (!empty($nickname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $nickname; ?>">
-            <span><?php echo $nickname_err; ?></span>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-            <span><?php echo $password_err; ?></span>
-        </div>
-        <div>
-            <input type="submit" value="Login">
-        </div>
-        <p>Don't have an account? <a href="index.php?action=register">Sign up now</a>.</p>
-    </form>
 </div>
 
 <?php

@@ -7,6 +7,7 @@ function getViewSubscribe()
 {
     require('app/views/subscription.php');
 }
+
 function addUser(array $input)
 {
     $firstname = null;
@@ -38,12 +39,7 @@ function addUser(array $input)
     if (!$success) {
         throw new Exception('Erreur !');
     }
+    
+    header('location: index.php?action=success');
 
-    // function profilpage()
-    // {
-    //     $userRepository = new UserRepository();
-    //     $userRepository->connection = new DatabaseConnection();
-    //     $users = $userRepository->getUser();
-    //     require('app/views/profil.php');
-    // }
 }

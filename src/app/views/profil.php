@@ -13,12 +13,12 @@
     <div class="profil-information">
 
         <div class="userFirstname">
-            <p class="userFirstname-label">Prénom :</p>
+            <p class="userFirstname-label">Firstname :</p>
             <p class="userFirstname-data"><?= $users[0]->firstname ?></p>
         </div>
 
         <div class="userLastname">
-            <p class="userLastname-label">Nom :</p>
+            <p class="userLastname-label">Name :</p>
             <p class="userLastname-data"><?= $users[0]->lastname ?></p>
         </div>
 

@@ -58,7 +58,7 @@
                 <em>Then copy the direct link of your image on the input below.</em>
                 <br>
             </div>
-            <input pattern="^(http(s?):)([/|.|\w|\s|-])*.(?:jpg|gif|png)$" class="formCreateHike--input" type="text" name="image"/>
+            <input pattern="^(http(s?):)([/|.|\w|\s|-])*.(?:jpg|gif|png)$" autocomplete="off" class="formCreateHike--input" type="text" name="image"/>
         </div>
         <button class="formCreateHike--subBtn" type="submit">Post</button>
     </form>

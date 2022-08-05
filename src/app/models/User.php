@@ -23,6 +23,7 @@ class UserRepository
         $statement = $this->connection->getConnection()->prepare(
             'INSERT INTO USERS(firstname, lastname,nickname,email,password,users_avatar,users_description) VALUES(?,?,?,?,?,?,?)'
         );
+
         function valid_donnees($donnees)
         {
             $donnees = trim($donnees);
@@ -30,6 +31,7 @@ class UserRepository
             $donnees = htmlspecialchars($donnees);
             return $donnees;
         }
+        
         $firstnameverif = valid_donnees($firstname);
         $lastnameverif = valid_donnees($lastname);
         $nicknameverif = valid_donnees($nickname);
@@ -81,6 +83,31 @@ class UserProfilRepository
             $users[] = $user;
         }
         return $users;
+    }
+
+    public function updateUser(): bool
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            'UPDATE USERS SET firstname = ?, lastname = ?, nickname = ?, email = ?, password = ?, users_avatar = ?, users_description = ? WHERE nickname = ?'
+        );
+        function valid_Updated_datas($donnees)
+        {
+            $donnees = trim($donnees);
+            $donnees = stripslashes($donnees);
+            $donnees = htmlspecialchars($donnees);
+            return $donnees;
+        }
+        $firstnameverif = valid_Updated_datas($_POST['firstname']);
+        $lastnameverif = valid_Updated_datas($_POST['lastname']);
+        $nicknameverif = valid_Updated_datas($_POST['nickname']);
+        $emailverif = valid_Updated_datas($_POST['email']);
+        $passwordHashed = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $avatarverif = valid_Updated_datas($_POST['users_avatar']);
+        $descriptionverif = valid_Updated_datas($_POST['users_description']);
+
+        $affectedLines = $statement->execute([$firstnameverif, $lastnameverif, $nicknameverif, $emailverif, $passwordHashed, $avatarverif, $descriptionverif, $_SESSION["nickname"]]);
+
+        return ($affectedLines > 0);
     }
 }
 class UserAdminProfilRepository

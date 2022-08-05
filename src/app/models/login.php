@@ -13,6 +13,11 @@ class LoginRepository
     public DatabaseConnection $connection;
     public function getLogin()
     {
+        
+        $login_err = "Invalid nickname or password.";
+        $nickname_err = "Please enter nickname.";
+        $password_err = "Please enter your password.";
+        
         $nickname = $password = "";
         $nickname_err = $password_err = $login_err = "";
 
@@ -65,8 +70,6 @@ class LoginRepository
                                     $_SESSION["id_user"] = $id;
                                     $_SESSION["nickname"] = $nickname;
                                     $_SESSION['admin'] = $admin;
-
-
 
                                     // Redirect user to the homepage.php page with the message ""
                                     header("location: index.php?action=success");

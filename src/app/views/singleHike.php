@@ -1,4 +1,13 @@
-<?php include "app/views/includes/header.php" ?>
+<?php include "app/views/includes/header.php" 
+?>
+
+<!-- <script>
+var result = confirm("Want to delete?");
+if (result) {
+   alert(nice); 
+}
+</script> -->
+
 
 <div class="container">
     <div class="img-container">

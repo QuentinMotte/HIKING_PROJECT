@@ -16,5 +16,6 @@ function profilpage()
     $hikeProfilUser = new HikeRepository();
     $hikeProfilUser->connection = new DatabaseConnection();
     $hikes = $hikeProfilUser->getHikesForProfil();
+    
     require('app/views/profil.php');
 }

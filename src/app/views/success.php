@@ -25,5 +25,5 @@ session_start();
 <h3>Our DB is glad to gnom gnom your data !</h3>
 <img src="img/eateateat.gif" alt="EatDatas" />
 
-<a href=index.php?nickname=<?=$_SESSION["nickname"]?>> Return home </a></div>
+<a href=index.php?action=home&nickname=<?=$_SESSION["nickname"]?>> Return home </a></div>
 <?php include 'app/views/includes/footer.php' ?>
