@@ -51,6 +51,8 @@ _No one can whistle a symphony. It takes a whole orchestra to play it._ - H.E. L
 -   Live Sass</br>
 -   GitHub</br>
 -   GitBash
+-   Phpmyadmin
+-   MySQL workbench
 
 </br>
 
