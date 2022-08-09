@@ -53,6 +53,7 @@ _No one can whistle a symphony. It takes a whole orchestra to play it._ - H.E. L
 -   GitBash
 -   Phpmyadmin
 -   MySQL workbench
+-   Docker
 
 </br>
 
